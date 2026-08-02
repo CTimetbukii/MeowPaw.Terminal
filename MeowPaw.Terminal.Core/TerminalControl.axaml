@@ -1,0 +1,19 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MeowPaw.Terminal.Core">
+    <Design.PreviewWith>
+        <controls:TerminalControl />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|TerminalControl">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <controls:Terminal/>
+                    <ScrollBar HorizontalAlignment="Right"/>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

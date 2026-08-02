@@ -1,0 +1,14 @@
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\bin\Debug\net10.0\MeowPaw.Terminal.Core.deps.json
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\bin\Debug\net10.0\MeowPaw.Terminal.Core.dll
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\bin\Debug\net10.0\MeowPaw.Terminal.Core.pdb
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.csproj.AssemblyReference.cache
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\Avalonia\resources
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.AssemblyInfoInputs.cache
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.AssemblyInfo.cs
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.csproj.CoreCompileInputs.cache
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.dll
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\refint\MeowPaw.Terminal.Core.dll
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.pdb
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\ref\MeowPaw.Terminal.Core.dll

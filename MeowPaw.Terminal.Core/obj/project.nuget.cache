@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "WD4P7EXQriI=",
+  "success": true,
+  "projectFilePath": "E:\\MeowPaw-Libs\\MeowPaw.Terminal\\MeowPaw.Terminal.Core\\MeowPaw.Terminal.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\22618\\.nuget\\packages\\avalonia\\12.0.0\\avalonia.12.0.0.nupkg.sha512",
+    "C:\\Users\\22618\\.nuget\\packages\\avalonia.buildservices\\11.3.2\\avalonia.buildservices.11.3.2.nupkg.sha512",
+    "C:\\Users\\22618\\.nuget\\packages\\avalonia.remote.protocol\\12.0.0\\avalonia.remote.protocol.12.0.0.nupkg.sha512",
+    "C:\\Users\\22618\\.nuget\\packages\\microcom.runtime\\0.11.4\\microcom.runtime.0.11.4.nupkg.sha512"
+  ],
+  "logs": []
+}
