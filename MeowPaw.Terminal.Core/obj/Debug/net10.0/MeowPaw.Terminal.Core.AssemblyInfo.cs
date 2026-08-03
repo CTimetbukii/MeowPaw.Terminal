@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeowPaw.Terminal.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83f8b4a2b01657c1d429844e3f6652ff1aadeaf4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeowPaw.Terminal.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeowPaw.Terminal.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

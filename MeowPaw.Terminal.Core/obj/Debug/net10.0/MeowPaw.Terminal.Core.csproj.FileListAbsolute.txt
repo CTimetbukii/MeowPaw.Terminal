@@ -12,3 +12,4 @@ E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\refint\MeowPaw.Terminal.Core.dll
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.pdb
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\ref\MeowPaw.Terminal.Core.dll
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Core\obj\Debug\net10.0\MeowPaw.Terminal.Core.sourcelink.json

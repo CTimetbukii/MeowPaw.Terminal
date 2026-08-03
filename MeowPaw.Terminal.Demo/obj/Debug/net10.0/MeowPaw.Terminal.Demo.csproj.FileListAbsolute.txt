@@ -92,3 +92,4 @@ E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Demo\obj\Debug\net10.0\refint\
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Demo\obj\Debug\net10.0\MeowPaw.Terminal.Demo.pdb
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Demo\obj\Debug\net10.0\MeowPaw.Terminal.Demo.genruntimeconfig.cache
 E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Demo\obj\Debug\net10.0\ref\MeowPaw.Terminal.Demo.dll
+E:\MeowPaw-Libs\MeowPaw.Terminal\MeowPaw.Terminal.Demo\obj\Debug\net10.0\MeowPaw.Terminal.Demo.sourcelink.json
