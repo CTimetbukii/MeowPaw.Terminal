@@ -2,3 +2,5 @@
 /MeowPaw.Terminal.Core/bin/
 /MeowPaw.Terminal.Demo/obj/
 /MeowPaw.Terminal.Demo/bin/
+**/bin/
+**/obj/
