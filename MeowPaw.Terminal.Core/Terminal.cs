@@ -38,7 +38,7 @@ public class Terminal : Control
     public static readonly StyledProperty<IBrush> CursorBrushProperty = AvaloniaProperty.Register<Terminal, IBrush>(
         nameof(CursorBrush), defaultValue: Brushes.White);
 
-    public static readonly StyledProperty<Image?> BackgroundImageProperty = AvaloniaProperty.Register<Terminal, Image?>(
+    public static readonly StyledProperty<IImage?> BackgroundImageProperty = AvaloniaProperty.Register<Terminal, IImage?>(
         nameof(BackgroundImage), defaultValue:null);
 
     public static readonly StyledProperty<BackgroundImageStretch> BackgroundImageStretchProperty = AvaloniaProperty.Register<Terminal, BackgroundImageStretch>(
@@ -53,14 +53,42 @@ public class Terminal : Control
     public static readonly StyledProperty<EmphasizeTextStyle> EmphasizeTextStyleProperty = AvaloniaProperty.Register<Terminal, EmphasizeTextStyle>(
         nameof(EmphasizeTextStyle), defaultValue: EmphasizeTextStyle.Highlight);
 
-    public static readonly StyledProperty<double> BackgroundOpacityProperty = AvaloniaProperty.Register<Terminal, double>(
-        nameof(BackgroundOpacity), defaultValue:1.0);
+    public static readonly StyledProperty<double> BackgroundBrushOpacityProperty = AvaloniaProperty.Register<Terminal, double>(
+        nameof(BackgroundBrushOpacity), defaultValue:1.0);
 
     public static readonly StyledProperty<Thickness> PaddingProperty = AvaloniaProperty.Register<Terminal, Thickness>(
         nameof(Padding), defaultValue:new Thickness(8, 8, 8, 8));
 
     public static readonly StyledProperty<ScrollbarVisibility> ScrollbarVisibilityProperty = AvaloniaProperty.Register<Terminal, ScrollbarVisibility>(
         nameof(ScrollbarVisibility), defaultValue:ScrollbarVisibility.Auto);
+
+    public static readonly StyledProperty<FontWeight> FontWeightProperty =
+        AvaloniaProperty.Register<Terminal, FontWeight>(
+            nameof(FontWeight), defaultValue: FontWeight.Normal);
+
+    public static readonly StyledProperty<IBrush> ForegroundBrushProperty = AvaloniaProperty.Register<Terminal, IBrush>(
+        nameof(ForegroundBrush), defaultValue: Brushes.White);
+
+    public static readonly StyledProperty<IBrush> BackgroundBrushProperty = AvaloniaProperty.Register<Terminal, IBrush>(
+        nameof(BackgroundBrush), defaultValue: Brushes.Black);
+
+    public IBrush BackgroundBrush
+    {
+        get => GetValue(BackgroundBrushProperty);
+        set => SetValue(BackgroundBrushProperty, value);
+    }
+
+    public IBrush ForegroundBrush
+    {
+        get => GetValue(ForegroundBrushProperty);
+        set => SetValue(ForegroundBrushProperty, value);
+    }
+
+    public FontWeight FontWeight
+    {
+        get => GetValue(FontWeightProperty);
+        set => SetValue(FontWeightProperty, value);
+    }
 
     public ScrollbarVisibility ScrollbarVisibility
     {
@@ -74,10 +102,10 @@ public class Terminal : Control
         set => SetValue(PaddingProperty, value);
     }
 
-    public double BackgroundOpacity
+    public double BackgroundBrushOpacity
     {
-        get => GetValue(BackgroundOpacityProperty);
-        set => SetValue(BackgroundOpacityProperty, value);
+        get => GetValue(BackgroundBrushOpacityProperty);
+        set => SetValue(BackgroundBrushOpacityProperty, value);
     }
 
     public EmphasizeTextStyle EmphasizeTextStyle
@@ -104,7 +132,7 @@ public class Terminal : Control
         set => SetValue(BackgroundImageStretchProperty, value);
     }
 
-    public Image? BackgroundImage
+    public IImage? BackgroundImage
     {
         get => GetValue(BackgroundImageProperty);
         set => SetValue(BackgroundImageProperty, value);
@@ -275,6 +303,50 @@ public class Terminal : Control
 
     #endregion
 
+    /// <summary>
+    /// 渲染选项，随属性变化实时同步，供 <see cref="Renderer"/> 使用
+    /// </summary>
+    public TerminalOptions Options { get; } = new();
+
+    private readonly Renderer _renderer = new();
+
+    /// <summary>
+    /// 将各属性变化同步到 <see cref="Options"/> 的映射表。
+    /// 注意：必须声明在所有 StyledProperty 之后，避免静态字段初始化顺序问题
+    /// </summary>
+    private static readonly Dictionary<AvaloniaProperty, Action<Terminal>> OptionSyncMap = new()
+    {
+        [FontProperty] = t => t.Options.FontFamily = t.FontFamily,
+        [FontSizeProperty] = t => t.Options.FontSize = t.FontSize,
+        [LineHeightTimesProperty] = t => t.Options.LineHeightTimes = t.LineHeightTimes,
+        [CellWidthTimesProperty] = t => t.Options.CellWidthTimes = t.CellWidthTimes,
+        [FontStyleProperty] = t => t.Options.FontStyle = t.FontStyle,
+        [FontStretchProperty] = t => t.Options.FontStretch = t.FontStretch,
+        [EnableFullColorEmojProperty] = t => t.Options.EnableFullColorEmoji = t.EnableFullColorEmoji,
+        [AdjustUnrecognizableTextBrightProperty] = t => t.Options.EnableAdjustUnrecognizableTextBright = t.EnableAdjustUnrecognizableTextBright,
+        [CurorTypeProperty] = t => t.Options.CursorType = t.CursorType,
+        [CursorBrushProperty] = t => t.Options.CursorBrush = t.CursorBrush,
+        [BackgroundImageProperty] = t => t.Options.BackgroundImage = t.BackgroundImage,
+        [BackgroundImageStretchProperty] = t => t.Options.BackgroundImageStretch = t.BackgroundImageStretch,
+        [BackgroundImageAlignProperty] = t => t.Options.BackgroundImageAlign = t.BackgroundImageAlign,
+        [BackgroundImageOpacityProperty] = t => t.Options.BackgroundImageOpacity = t.BackgroundImageOpacity,
+        [EmphasizeTextStyleProperty] = t => t.Options.EmphasizeTextStyle = t.EmphasizeTextStyle,
+        [BackgroundBrushOpacityProperty] = t => t.Options.BackgroundBrushOpacity = t.BackgroundBrushOpacity,
+        [PaddingProperty] = t => t.Options.Padding = t.Padding,
+        [ScrollbarVisibilityProperty] = t => t.Options.ScrollbarVisibility = t.ScrollbarVisibility,
+        [DenyChangeTitleProperty] = t => t.Options.DenyChangeTitle = t.DenyChangeTitle,
+        [AllowDECRQCRAProperty] = t => t.Options.AllowDECRQCRA = t.AllowDECRQCRA,
+        [AllowOSC52WriteClipboardProperty] = t => t.Options.AllowOSC52WriteClipboard = t.AllowOSC52WriteClipboard,
+        [ENQResponseProperty] = t => t.Options.ENQResponse = t.ENQResponse,
+        [ScrollToInputPositionProperty] = t => t.Options.ScrollToInputPosition = t.ScrollToInputPosition,
+        [HistorySizeProperty] = t => t.Options.HistoryLineSize = t.HistoryLineSize,
+        [BELBehaviorProperty] = t => t.Options.BELBehavior = t.BELBehavior,
+        [ShowRightClickMenuProperty] = t => t.Options.ShowRightClickMenu = t.ShowRightClickMenu,
+        [FontWeightProperty] = t => t.Options.FontWeight = t.FontWeight,
+        [ForegroundBrushProperty] = t => t.Options.ForegroundBrush = t.ForegroundBrush,
+        [BackgroundBrushProperty] = t => t.Options.BackgroundBrush = t.BackgroundBrush,
+    };
+
     public Terminal()
     {
         AffectsRender<Terminal>(
@@ -293,14 +365,36 @@ public class Terminal : Control
             BackgroundImageAlignProperty,
             BackgroundImageOpacityProperty,
             EmphasizeTextStyleProperty,
-            BackgroundOpacityProperty,
+            BackgroundBrushOpacityProperty,
             PaddingProperty,
             ScrollbarVisibilityProperty,
             HistorySizeProperty);
+
+        PropertyChanged += OnPropertyChanged;
+    }
+
+    private void OnPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (OptionSyncMap.TryGetValue(e.Property, out var sync))
+        {
+            sync(this);
+        }
     }
     
     public override void Render(DrawingContext context)
     {
+        Options.Bounds = Bounds;
         
+        //判断是等宽字体还是非等宽字体
+        if (FontFamily.IsMonospace())
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+        _renderer.Render(context, Options);
     }
 }
