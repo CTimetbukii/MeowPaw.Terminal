@@ -17,9 +17,6 @@ public class Terminal : Control
     public static readonly StyledProperty<double> LineHeightTimesProperty = AvaloniaProperty.Register<Terminal, double>(
         nameof(LineHeightTimes), defaultValue: 1.2);
 
-    public static readonly StyledProperty<double> CellWidthTimesProperty = AvaloniaProperty.Register<Terminal, double>(
-        nameof(CellWidthTimes), defaultValue: 1.05);
-
     public static readonly StyledProperty<FontStyle> FontStyleProperty = AvaloniaProperty.Register<Terminal, FontStyle>(
         nameof(FontStyle), defaultValue:FontStyle.Normal);
 
@@ -180,12 +177,6 @@ public class Terminal : Control
         set => SetValue(FontStyleProperty, value);
     }
 
-    public double CellWidthTimes
-    {
-        get => GetValue(CellWidthTimesProperty);
-        set => SetValue(CellWidthTimesProperty, value);
-    }
-
     public double LineHeightTimes
     {
         get => GetValue(LineHeightTimesProperty);
@@ -319,7 +310,6 @@ public class Terminal : Control
         [FontProperty] = t => t.Options.FontFamily = t.FontFamily,
         [FontSizeProperty] = t => t.Options.FontSize = t.FontSize,
         [LineHeightTimesProperty] = t => t.Options.LineHeightTimes = t.LineHeightTimes,
-        [CellWidthTimesProperty] = t => t.Options.CellWidthTimes = t.CellWidthTimes,
         [FontStyleProperty] = t => t.Options.FontStyle = t.FontStyle,
         [FontStretchProperty] = t => t.Options.FontStretch = t.FontStretch,
         [EnableFullColorEmojProperty] = t => t.Options.EnableFullColorEmoji = t.EnableFullColorEmoji,
@@ -353,7 +343,6 @@ public class Terminal : Control
             FontProperty,
             FontSizeProperty,
             LineHeightTimesProperty,
-            CellWidthTimesProperty,
             FontStyleProperty,
             FontStretchProperty,
             EnableFullColorEmojProperty,
@@ -384,16 +373,6 @@ public class Terminal : Control
     public override void Render(DrawingContext context)
     {
         Options.Bounds = Bounds;
-        
-        //判断是等宽字体还是非等宽字体
-        if (FontFamily.IsMonospace())
-        {
-            
-        }
-        else
-        {
-            
-        }
         
         _renderer.Render(context, Options);
     }

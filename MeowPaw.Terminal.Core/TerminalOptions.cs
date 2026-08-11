@@ -28,7 +28,6 @@ public class TerminalOptions
 
     public double FontSize { get; set; } = 12;
     public double LineHeightTimes { get; set; } = 1.2;
-    public double CellWidthTimes { get; set; } = 1.05;
 
     private FontStyle _fontStyle = FontStyle.Normal;
 

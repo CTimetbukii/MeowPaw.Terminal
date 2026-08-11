@@ -65,13 +65,11 @@ public class Renderer
         }
     }
 
-    /// <summary>
-    /// 按 Stretch 计算图片目标矩形，并按 Align 在 bounds 内对齐
-    /// </summary>
+    // 按 Stretch 计算图片目标矩形，并按 Align 在 bounds 内对齐
     private Rect ComputeImageDestRect(IImage image, Rect bounds, BackgroundImageStretch stretch, BackgroundImageAlign align)
     {
-        var sourceW = (double)image.Size.Width;
-        var sourceH = (double)image.Size.Height;
+        var sourceW = image.Size.Width;
+        var sourceH = image.Size.Height;
         if (sourceW <= 0 || sourceH <= 0)
         {
             return default;
